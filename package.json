@@ -1,0 +1,35 @@
+{
+  "name": "Chatting-Project",
+  "version": "0.0.1",
+  "private": true,
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.0.20",
+    "babel-polyfill": "^6.0.16",
+    "babel-preset-env": "*",
+    "babel-preset-stage-2": "^6.24.1",
+    "nodemon": "^1.11.0"
+  },
+  "dependencies": {
+    "bcrypt": "^3.0.0",
+    "cors": "^2.8.4",
+    "ejs": "^2.5.8",
+    "express": "^4.16.2",
+    "fs-extra": "^6.0.1",
+    "jsonwebtoken": "^8.3.0",
+    "path": "^0.12.7",
+    "pg": "^7.4.3",
+    "request": "^2.83.0",
+    "sequelize": "^4.14.0",
+    "socket.io": "^2.1.1",
+    "winston": "^3.0.0",
+    "winston-daily-rotate-file": "^3.2.3"
+  },
+  "scripts": {
+    "start": "nodemon server/index.js --exec babel-node --presets env,stage-2",
+    "pm2_start": "pm2 start --interpreter babel-node server/index.js --name authentication-service",
+    "pm2_stop": "pm2 stop --interpreter babel-node server/index.js",
+    "pm2_docker_start": "webpack --config webpack.config.prod.js && pm2-docker start --interpreter babel-node server/index.js --name authentication-service",
+    "pm2_docker_stop": "pm2-docker stop --interpreter babel-node server/index.js"
+  }
+}
